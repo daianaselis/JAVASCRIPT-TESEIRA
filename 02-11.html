@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localstorage</title>
+</head>
+
+<body>
+    <div id="elementos">
+    </div>
+    <script>
+        // lista = [
+        //     {
+        //         nombre: "Camilo",
+        //         apellido: "Canelo",
+        //         edad: 25
+        //     },
+        //     {
+        //         nombre: "Ricardo",
+        //         apellido: "Lopez",
+        //         edad: 29
+        //     }
+        // ];
+        // localStorage.setItem("list", JSON.stringify(lista));
+        list =JSON.parse(localStorage.getItem("list"))
+        console.log(list);
+        list.forEach(element => {
+            let elements =document.getElementById("elementos");
+            let divjs=document.createElement("div");
+            divjs.innerHTML=element.nombre+" "+element.edad+" "+element.apellido;
+            elements.appendChild(divjs);
+        });
+  </script>
+</body>
+
+</html>
