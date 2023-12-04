@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./estilos.css">
+    <link rel="icon " href="video-solid (1).svg">
+    <title>TRAILER Y SINOPSIS</title>
+</head>
+<body>
+    <div id="titulos">
+
+    </div>
+    <div id="contenedorVideo" class="container">
+    </div>
+
+    <div id="contenedorYoutube" class="container">
+    </div>
+
+    <div class="piedepagina">
+        <button class="btn btn-primary" type="button" ><a href="https://github.com/daianaselis">Aqui esta el link de mi repositorio
+        </a></button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let peliculaId = urlParams.get('pelicula');
+
+        (async function(){
+            const trailers = await (await fetch(`https://api.themoviedb.org/3/movie/${peliculaId}/videos?language=es-MX&api_key=192e0b9821564f26f52949758ea3c473`)).json()
+            const trailer = trailers.results.filter(t => t.type = 'Trailer')[0]
+
+            if(trailer && trailer.site == 'YouTube'){
+                let contenedorYoutube = document.getElementById('contenedorYoutube');
+            
+                contenedorYoutube.innerHTML = `
+                    <p align="center"><iframe width="967" height="543" src="https://www.youtube.com/embed/${trailer.key}" title="" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  allowFullScreen></iframe></p>
+                `
+            }
+            else{
+                let contenedor = document.getElementById('contenedorVideo');
+                contenedor.innerHTML = `
+                    <video width="967" height="543" controls>
+                        <source src="http://localhost:3030/${peliculaId}.mp4" type="video/mp4">
+                    </video>
+                `
+            }
+        })();
+        (async function buscarPelicula(){
+            const respuesta = await fetch(`https://api.themoviedb.org/3/movie/${peliculaId}?api_key=192e0b9821564f26f52949758ea3c473&language=es-MX`); //aqui declaro una constante y dentro de ella llamo un fetch para traer lo que yo necesito de la api 
+
+            // Si la respuesta es correcta me devuelve un status 200 que significa que todo esta correcto
+            if(respuesta.status === 200){
+                const datos = await respuesta.json();
+                console.log(datos);
+                let contenedor = document.getElementById('titulos');
+                contenedor.innerHTML = `
+                    <h1>
+                        ${datos.title}
+                    </h1>
+                    <p>
+                        ${datos.overview}    
+                    </p>
+                `
+            }
+        })();
+        
+    </script>
+    
+</body>
+</html>

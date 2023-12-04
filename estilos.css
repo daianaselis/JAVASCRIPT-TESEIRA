@@ -1,0 +1,144 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+    background-image: linear-gradient(
+        45deg,
+        hsl(240deg 67% 32%) 0%,
+        hsl(202deg 40% 53%) 50%,
+        hsl(188deg 57% 66%) 100%
+      );
+	background-repeat: no-repeat;
+	background-size: 100%;
+    color:white;
+	min-height: 100vh;
+}
+
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	margin: 40px auto 100px auto;
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 40px;
+}
+
+.contenedor .pelicula {
+	text-align: center;
+}
+
+.contenedor .pelicula .titulo {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.contenedor .pelicula .poster {
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 15px;
+}
+
+.paginacion {
+	position: fixed;
+	bottom: 0;
+	background: #100a1f;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	padding: 10px;
+}
+
+.paginacion button {
+	cursor: pointer;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 50px;
+	width: 200px;
+	background: #241744;
+	color: #fff;
+	border-radius: 100px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	transition: .3s ease all;
+}
+
+.paginacion button:hover {
+	background: #137c32;
+}
+#titulos p{
+
+
+	text-align: left;
+	font-family: 'Montserrat', sans-serif;
+
+}
+.piedepagina{
+	position: fixed;
+	bottom: 10px;
+margin-left: 1600px;
+}
+.piedepagina:hover{
+	background-color: bisque;
+	color: black;
+
+}
+#cabecera{
+	text-align: center;
+	background-image: linear-gradient(
+  45deg,
+  hsl(240deg 100% 20%) 0%,
+  hsl(225deg 100% 25%) 11%,
+  hsl(217deg 100% 29%) 22%,
+  hsl(212deg 100% 32%) 33%,
+  hsl(207deg 100% 35%) 44%,
+  hsl(202deg 100% 36%) 56%,
+  hsl(197deg 100% 38%) 67%,
+  hsl(192deg 100% 39%) 78%,
+  hsl(187deg 100% 40%) 89%,
+  hsl(184deg 63% 53%) 100%
+);
+
+padding: 20px;
+}
+h1{
+	background-image: linear-gradient(
+  45deg,
+  hsl(240deg 100% 20%) 0%,
+  hsl(225deg 100% 25%) 11%,
+  hsl(217deg 100% 29%) 22%,
+  hsl(212deg 100% 32%) 33%,
+  hsl(207deg 100% 35%) 44%,
+  hsl(202deg 100% 36%) 56%,
+  hsl(197deg 100% 38%) 67%,
+  hsl(192deg 100% 39%) 78%,
+  hsl(187deg 100% 40%) 89%,
+  hsl(184deg 63% 53%) 100%
+);
+
+}
+#titulos h1 {
+	margin-bottom: 50px; 
+	padding-right: 20px;
+  }
+#titulos h1 span {
+	margin-right: 10px; 
+	
+  }
+  #titulos p{
+	margin-bottom: 50px; 
+	padding: 0 200px;
+  }
