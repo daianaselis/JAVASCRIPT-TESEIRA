@@ -5,10 +5,13 @@ const cors = require('cors')
 
 const app = express();
 
+//middlewares
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
-app.use(servestatic(path.join(__dirname, 'peliculas')))
+//servir archivos
+const ruta = path.join(__dirname, 'peliculas')
+app.use(servestatic(ruta))
 
 app.get('/helloworld', (request, response) => {
     console.log(request.query);
@@ -20,6 +23,7 @@ app.post('/helloworld', (request, response) => {
     response.send(request.body);
 })
 
+//arrancar el servidor :)
 app.listen(3030, ()=>{
     console.log('Soy el servidor de videos :)')
 })
